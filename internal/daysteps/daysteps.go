@@ -24,7 +24,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	}
 	steps, err := strconv.Atoi(fields[0])
 	if err != nil {
-		return err
+		return fmt.Errorf("invalid steps format: %w", err)
 	}
 	if steps <= 0 {
 		return errors.New("количество шагов должно быть положительным")
